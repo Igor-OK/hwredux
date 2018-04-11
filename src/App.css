@@ -191,6 +191,18 @@ body{
          color: coral;}
 } 
 
+.tags{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: coral;
+  z-index: 555;
+}
+
+.tag_active{
+  background-color: coral;
+}
+
 
 
 /* === MEDIA QUERIES === */
