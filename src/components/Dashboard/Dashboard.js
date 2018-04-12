@@ -11,6 +11,9 @@ if(!Items){
     return null
 }
 
+if(!Items.length){
+    return null
+}
 
     return(  
         <div className={Opened? "dashboard":"hidden"}>

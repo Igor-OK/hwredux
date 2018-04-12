@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 
 
 const TAGS = [
-    {title: 'Котейки', tag: 'cats'},
-    {title: 'Собаки', tag: 'dogs'},
-    {title: 'Куры', tag: 'chickens'},
-    {title: 'Лошади', tag: 'horses'},
-    {title: 'Коровы', tag: 'cows'}
+    {title: 'Аметист', tag: 'ametist'},
+    {title: 'Ларимар', tag: 'larimar'},
+    {title: 'Опал', tag: 'opal'},
+    {title: 'Изумруд', tag: 'emerald'},
+    {title: 'Лунный камень', tag: 'moon'}
 ];
 
 const stateToProps = (state) =>({

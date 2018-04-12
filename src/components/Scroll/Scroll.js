@@ -19,6 +19,10 @@ export class Scroll extends React.Component {
         document.removeEventListener('scroll', this.onScroll);
     }
 
+    componentDidUpdate() {
+        this.onScroll()
+    }
+
     onScroll() {
         if (!this.props.Cols || this.state.loading) {
             return;

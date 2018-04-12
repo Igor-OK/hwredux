@@ -11,7 +11,7 @@ let store = createStore(
     if (!state) {
       return{
         tags: {
-          current:'dogs'
+          current:'larimar'
         }
       };
     }

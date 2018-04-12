@@ -14,7 +14,6 @@ export const Fetch = connect(stateToProps) (
         state = {
             loading: true,
             cards: [],
-            // step: 1,
             firstTime: true
         };
 
@@ -43,33 +42,31 @@ export const Fetch = connect(stateToProps) (
         componentWillReceiveProps(props){
             if(props.tag !== this.props.tag){
                 this.step = 1;
-                this.fetchMore();
+                this.setState({cards: []});
+                this.fetchMore;
             }
         }
 
         async fetchMore(){
-            console.log('fetch', this.step);
             //if - чтобы не было "феч на феч"
             if ((!this.loading && !this.state.firstTime) || (this.loading && this.state.firstTime)){
                 this.loading = true;
-                // let num = this.state.step; // убрали из стэйта в проперти
-                let num = this.step;
 
-                // let tag = this.props.tag;
-                // let param = 'http://cors-anywhere.herokuapp.com/https://api.qwant.com/api/search/images?count=25&offset='+num*25+'&q='+tag;
-                let param = '/data' + num + '.json';
+                let num = this.step;
+                let tag = this.props.tag;
+                let param = '/data/data-' +tag+ '-'+ num + '.json';
+
                 let response = await fetch(param);
                 let json = await response.json();
                 let jsonClean = json && json.data && json.data.result && json.data.result.items;
                 num++;
-                if (num === 6) num = 1; // пока зациклю на мои 5 json файлов
+                if (num === 5) num = 1; // пока зациклю на мои 5 json файлов
                 this.setState({
                     cards: this.state.cards.concat(jsonClean),
                     loading: false,
-                    // step: num,
                     firstTime: false
                     }); 
-                this.step++;
+                this.step = num;
                 this.loading = false;       
             }
         } 
