@@ -28,3 +28,5 @@ export function Card ({Item, OnClick}){
         </div>    
     );
 }
+
+//src={Item.thumbnail} 

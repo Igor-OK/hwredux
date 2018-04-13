@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import {mainReducer} from './reducers/mainReducer'
 
 import './App.css';
 
@@ -17,75 +18,7 @@ function middleware ({dispatch, getState}){
 }
 
 let store = createStore( 
-  (state, action) => {
-    if (!state) {
-      return{
-        tags: {
-          current:'larimar'
-        },
-        feed:{
-          cards: [],
-          step: 1,
-          loading: false
-        }
-      };
-    }
-    
-    if (action.type === 'SET_TAG') {
-      return{
-        ...state,
-        tags: {
-          ...state.tags,
-          current: action.tag
-        }
-      };
-    }
-
-    if (action.type === 'FETCH_LOADING'){
-      return{
-        ...state,
-        feed: {
-          ...state.feed,
-          loading: action.loading
-        }
-      }
-    }
-
-    if (action.type === 'FETCH_ERROR'){
-      return{
-        ...state,
-        feed: {
-          ...state.feed,
-          error: action.error
-        }
-      }
-    }
-
-    if (action.type === 'FETCH_APPEND_CARDS'){
-      return{
-        ...state,
-        feed: {
-          ...state.feed,
-          cards: state.feed.cards.concat(action.cards),
-          step: action.step
-        }
-      }
-    }
-
-    if (action.type === 'FETCH_RESET'){
-      return{
-        ...state,
-        feed: {
-          ...state.feed,
-          cards: [],
-          step: 1,
-          error: null
-        }
-      }
-    }
-
-    return state;
-  },
+  mainReducer,
   undefined,
   applyMiddleware(middleware)
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
