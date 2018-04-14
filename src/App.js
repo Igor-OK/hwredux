@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import {mainReducer} from './reducers/mainReducer'
 
@@ -20,21 +20,15 @@ function middleware ({dispatch, getState}){
 let store = createStore( 
   mainReducer,
   undefined,
-  applyMiddleware(middleware)
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose( // не работает в  opera и firefox !!!!!!!
+    applyMiddleware(middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  ) 
 );
 
 store.subscribe(() => {
   console.log('Subscribe', store.getState())
 });
-
-
-
-setInterval(()=>{
-  if (store.getState().enabled) {
-    store.dispatch({type:'TEST'});
-  }
-}, 1000);
 
 class App extends Component {
   render() {

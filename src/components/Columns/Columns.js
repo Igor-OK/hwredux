@@ -5,13 +5,12 @@ import {deepCopy} from '../../helpers/clone';
 import {mobileLandscape, mobilePortrait} from '../../helpers/mobileDevice';
 
 const scrollBarWidth = 16,
+      middleWidth = 350,
       between = 35;
 
 export class Columns extends React.Component {
     state = {
         newArray:[],
-        width: 0,
-        height: 0,
         columns: 0,
         columnWidth: 0,
         coordinate:0
@@ -56,12 +55,12 @@ export class Columns extends React.Component {
             portraitMobileScroller = 1,
             horisontalCoords = 0;
 
-// Сейчас я вычислю размеры и координаты для всех элементов с картинками и передам их дальше
-// Дабы не изменять первоначальный массив данных добавлением в него новых полей, создадим клон и дальше будем работать с ним
+        // Сейчас я вычислю размеры и координаты для всех элементов с картинками и передам их дальше
+        // Дабы не изменять первоначальный массив данных добавлением в него новых полей, создадим клон и дальше будем работать с ним
         let array = deepCopy(props.Items);
         
         //Определяем количество колонок
-        cols = Math.round(width / 350); 
+        cols = Math.round(width / middleWidth); 
 
         if (cols === 4){
             verticalCoords=[0, 0, 0, 0];
@@ -106,8 +105,6 @@ export class Columns extends React.Component {
                 verticalCoords[number] += array[i].elem_height + between; 
             }
             this.setState({
-                width: width, 
-                height: height, 
                 columns: cols, 
                 columnWidth: colWidth, 
                 newArray: array, 
@@ -131,8 +128,6 @@ export class Columns extends React.Component {
                 horisontalCoords += array[i].elem_width + between;
             }
             this.setState({
-                width: width, 
-                height: height, 
                 columns: cols, 
                 newArray: array, 
                 coordinate: horisontalCoords

@@ -50,6 +50,7 @@ body{
   position: fixed;
   width: 100vw;
   height: 100vh;
+  z-index: 200;
 }
 
 .dashboard__closebtn{
@@ -161,8 +162,6 @@ body{
 .dashboard__description{
   position: fixed;
   height: 10vh;
-  /* width:70vw;
-  left: 15vw; */
   width: 100%;
   text-align: center;
   font-size: 20px;
@@ -195,12 +194,23 @@ body{
   position: fixed;
   left: 0;
   top: 0;
-  background-color: coral;
-  z-index: 555;
+  z-index: 155;
+  display: flex;
+}
+
+.tag{
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  /* width: 130px; */
+  height: 20px;
+  margin: 1px;
+  background-color:#fff;
 }
 
 .tag_active{
   background-color: coral;
+  color: white;
+  font-weight: bold;
 }
 
 
