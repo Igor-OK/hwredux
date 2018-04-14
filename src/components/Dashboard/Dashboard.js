@@ -30,7 +30,7 @@ if(!Items.length){
                 Class={"dashboard__previousbtn"} 
             />   
             <Image 
-                Src={Items[Current].media}
+                Src={Items[Current].media_fullsize}
             />
             <Description 
                 Desc={Items[Current].title}/>

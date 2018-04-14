@@ -20,15 +20,16 @@ function middleware ({dispatch, getState}){
 let store = createStore( 
   mainReducer,
   undefined,
-  compose( // не работает в  opera и firefox !!!!!!!
-    applyMiddleware(middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  ) 
+  applyMiddleware(middleware)
+  // compose( // не работает в  opera и firefox !!!!!!!
+  //   applyMiddleware(middleware),
+  //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  // ) 
 );
 
-store.subscribe(() => {
-  console.log('Subscribe', store.getState())
-});
+// store.subscribe(() => {
+//   console.log('Subscribe', store.getState())
+// });
 
 class App extends Component {
   render() {

@@ -23,7 +23,7 @@ export const Tags = connect(stateToProps)(
             <div className="tags">
                 <div className="tags__wrapper">
                     {TAGS.map(({title, tag}, index) => (
-                        <button 
+                        <div 
                             className = {`tag tag_color_${index} ${tag===current? 'tag_active': ''}`}
                             key = {tag}
                             onClick = {() => dispatch({
@@ -32,7 +32,7 @@ export const Tags = connect(stateToProps)(
                             })}
                         >
                             {title}
-                        </button>
+                        </div>
                     ))}
                 </div>    
             </div>    
