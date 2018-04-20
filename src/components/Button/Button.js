@@ -1,13 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
 
-
-export function Button ({Class, ButtonHandler}){
-
-    return(
-        <div 
-            className={Class}  
-            onClick = {ButtonHandler}
-        >            
-        </div>    
-    );
+export function Button({ Class, ButtonHandler }) {
+  return <div className={Class} onClick={ButtonHandler} />;
 }
