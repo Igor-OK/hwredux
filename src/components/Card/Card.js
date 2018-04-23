@@ -20,7 +20,7 @@ export function Card({ Item, OnClick }) {
       <img
         className="card__image"
         alt={Item.title}
-        src={Item.media} //thumbnail
+        src={Item.thumbnail} //media
       />
       <div className="card__description">{Item.title}</div>
     </div>

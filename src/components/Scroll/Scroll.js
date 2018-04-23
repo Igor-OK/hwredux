@@ -61,7 +61,13 @@ export class Scroll extends React.Component {
       <div className="scroll">
         {this.props.children}
 
-        {this.state.loading && <div className="spinner">загрузка...</div>}
+        {this.state.loading && (
+          <div className="spinner spinner-bottom">
+            <div className="bounce1" />
+            <div className="bounce2" />
+            <div className="bounce3" />
+          </div>
+        )}
       </div>
     );
   }

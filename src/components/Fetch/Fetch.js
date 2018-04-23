@@ -61,7 +61,7 @@ export const Fetch = connect(stateToProps)(
         loading = this.state.loading;
 
       if (loading) {
-        return <div className="spinner">загрузка...</div>;
+        return <div className="spinner" />;
       }
 
       if (error) {
