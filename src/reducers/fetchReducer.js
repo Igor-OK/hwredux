@@ -2,7 +2,7 @@ export function fetchReducer(state, action) {
   if (!state) {
     return {
       cards: [],
-      step: 1,
+      step: 0,
       loading: false
     };
   }
@@ -33,7 +33,7 @@ export function fetchReducer(state, action) {
     return {
       ...state,
       cards: [],
-      step: 1,
+      step: 0,
       error: null
     };
   }
