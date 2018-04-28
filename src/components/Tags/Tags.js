@@ -6,10 +6,10 @@ const TAGS = [
   { title: "Ларимар", tag: "larimar" },
   { title: "Опал", tag: "opal" },
   { title: "Изумруд", tag: "emerald" },
-  { title: "Лунный камень", tag: "moon" },
+  { title: "Лунный камень", tag: "moon-stone" },
   { title: "Турмалин", tag: "tourmaline" },
   { title: "Чароит", tag: "charoite" },
-  { title: "Спектролит", tag: "spectro" }
+  { title: "Спектролит", tag: "spectrolite" }
 ];
 
 const stateToProps = state => ({
